@@ -1,0 +1,22 @@
+apiVersion: extension/vibeta1
+kind: Deployment
+metadata:
+  name: flaskapp-gke
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: saclassifier
+  template:
+    metadata:
+      labels:
+        app: saclassifier
+    spec:
+      containers:
+        name: saflask
+        image: gcr.io/sentiment-analysis-project01/saflask-gke
+        ports:
+          containerPort: 8080
+        env:
+          name: PORT
+          value: "8080
