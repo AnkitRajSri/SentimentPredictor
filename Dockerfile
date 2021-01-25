@@ -10,4 +10,4 @@ COPY . ./
 RUN pip install tensorflow==2.3.1 tensorflow-datasets flask gunicorn healthcheck google-cloud-logging
 
 # Run the flask service on container startup
-CMD exec gunicorn --bind : $PORT --worker 1 --threads 8 run:app
+CMD exec gunicorn --bind : $PORT --workers 1 --threads 8 run:app
